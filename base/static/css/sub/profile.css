@@ -1,0 +1,103 @@
+.star_container_x div{
+    background-color: green;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+}
+.star_container_x>span{
+    font-size: 18px;
+}
+.initial_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_head{
+    margin-top: 100px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.profile_container{
+    display: flex;
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    justify-content: center;
+    background-color: rgb(41, 41, 41);
+    align-items: center;
+    border-radius: 10px;
+}
+.profile_image{
+    max-width: 100px;
+    height: 100px;
+    /* background-color: aqua; */
+}
+.profile_image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.profile_details{
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+    /* background-color: aliceblue; */
+}
+.profile_details>div{
+    padding: 10px;
+    margin: 4px;
+    text-transform: capitalize;
+    /* background-color: blueviolet; */
+}
+
+.profile_details .star_container div label{
+    font-size: 20px;
+    color: lightblue;
+    padding: 3px;
+    float: right;
+}
+
+@media only screen and (max-width: 1300px){
+    .initial_container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .profile_head{
+        align-items: center;
+     
+    }
+    .profile_container{
+        display: flex;
+        width: 400px;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        justify-content: center;
+        background-color: rgb(41, 41, 41);
+        align-items: center;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+
+    .profile_container{
+        display: flex;
+        width: 300px;
+        padding: 10px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        justify-content: center;
+        background-color: rgb(41, 41, 41);
+        align-items: center;
+        border-radius: 10px;
+    }
+}

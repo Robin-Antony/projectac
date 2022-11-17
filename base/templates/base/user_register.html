@@ -1,0 +1,71 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/sub/form.css' %}"> {% endblock %}
+ {% block content %}
+
+ <div class="popup_container" id="message_container">
+    <div class="popup_item">
+        <span id="closebtn"><i class="fa-solid fa-xmark"></i></span>
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+
+        {% if form.errors %}
+    
+        {{ form.errors }}
+    
+        {% endif %}
+    </div>
+</div>
+
+ <div class="form_container">
+
+    <form action="" method="post" class="address_form">
+        
+        {% csrf_token %}
+
+        
+        <div>
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" maxlength="200" required id="id_username">
+        </div>
+        <div>
+            <label for="id_email">Email:</label> 
+            <input type="email" name="email" maxlength="254" autofocus required id="id_email">
+            
+        </div>
+        <div>
+            <label for="id_password1">Password:</label> 
+            <input type="password" name="password1" autocomplete="new-password" required id="id_password1" onkeyup="return validate()"> 
+            <span class="helptext">
+                <ul>
+                    <li id="number">Your password must contain at least one number.</li>
+                    <li id="upper">One uppercase letter.</li>
+                    <li id="lower">One lowercase letter.</li>
+                    <li id="length">8 characters.</li>
+                    
+                </ul>
+            </span>
+        </div>
+        <div>
+            <label for="id_password2">Password confirmation:</label> 
+            <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+            <span class="helptext">Enter the same password as before, for verification.</span>
+        </div>
+        <input type="submit" value="Register" class="submitBtn" >
+        <div class="extra">
+           <p> Already Registred? <a href="{% url 'login_page' %}">Login Now</a></p>
+            
+        </div>
+         
+    </form>
+</div>
+
+
+<script>
+    document.getElementById('closebtn').addEventListener('click', function(){
+    document.getElementById('message_container').style.display = "none";
+})
+</script>
+
+{% endblock content %}

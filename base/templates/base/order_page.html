@@ -1,0 +1,83 @@
+{% extends 'base/main.html'%}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/sub/orderpage.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/sub/form.css' %}"> 
+{% endblock %}
+{% block content %}
+
+<div class="center_span"><span><h2>Recent Orders </h2></span></div>
+{% if staff is not None %}
+<div class="profile_order"><a href="{% url 'staff_profile' staff.id %}">Profile</a></div>
+
+{% endif %}
+    <div class="open_recent_container">
+        <div>
+            <div class="open">
+                <span class="" id="span_open"><h2 id="orders_open">Open Orders</h2>
+                    <h2 class="for_big_only">open orders </h2>
+                </span>
+                <div id="open_display">
+                    {% for order in open_orders%}
+                    <div class="">
+                        <h3>{{order.created|timesince}}</h3>
+                        <h3>{{order.name}}</h3>
+                        <h3>{{order.phone}}</h3>
+                        
+                        <address>
+                            <p> {{order.address}}</p>
+                        </address>
+                        {% if order.problem is not None%}
+                            <p>{{order.problem}}</p>
+                            {% endif %}
+                        {% if order.accured %}
+                        
+                        {% else %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input type="text" value="{{order.id}}" name="order" style="display: none;">
+                            <input type="submit" class="submitBtn" value="Accept order">
+                        </form>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    
+                   
+                </div>
+            </div>
+            <div class="central_ling"></div>
+            <div class="recent">
+                <span class="initial_style" id="span_all"><h2 id="orders_all">All Orders</h2> <h2 class="for_big_only">accepted orders</h2></span>
+                <div id="all_display">
+                    {% for order in orders %}
+                    {% if order.accured %}
+                    <div class="">
+                        <h3>{{order.created|timesince}}</h3>
+                        <h3>{{order.name}}</h3>
+                        <h3>{{order.phone}}</h3>
+                        
+                        <address>
+                            <p> {{order.address}}</p>
+                        </address>
+                        <div>
+                            {% if order.problem is not None%}
+                            <p>{{order.problem}}</p>
+                            {% endif %}
+                        </div>
+                        
+                        <h4>this order is accepted by {{order.accured_by}}</h4>
+                    
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+{% endblock content %}

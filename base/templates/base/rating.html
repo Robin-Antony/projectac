@@ -1,0 +1,68 @@
+{% extends 'base/main.html' %}
+
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/sub/form.css' %}"> {% endblock %}
+{% block content %}
+<div class="popup_container" id="message_container">
+    <div class="popup_item">
+        <span id="closebtn"><i class="fa-solid fa-xmark"></i></span>
+        {% for message in messages %}
+
+            <p>{{message}}</p>
+            <p>We all need people who will give us feedback. That's how we improve</p>
+        {% endfor %}
+
+        {% if form.errors %}
+    
+        {{ form.errors }}
+    
+        {% endif %}
+    </div>
+</div>
+<div class="rating_container1">
+    <h3>Your Order Status</h3>
+    <p>Your order is comlpete </p>
+    <div class="rate_container">
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="star_container">
+                <div>
+                    <div>
+                        <input type="radio" id="rate-5" name="ratestar" value="5" checked>
+                        <label for="rate-5" class="fas fa-star" ></label>
+        
+                        <input type="radio" id="rate-4" name="ratestar" value="4">
+                        <label for="rate-4" class="fas fa-star"></label>
+        
+                        <input type="radio" id="rate-3" name="ratestar" value="3">
+                        <label for="rate-3" class="fas fa-star"></label>
+        
+                        <input type="radio" id="rate-2" name="ratestar" value="2">
+                        <label for="rate-2" class="fas fa-star"></label>
+        
+                        <input type="radio" id="rate-1" name="ratestar" value="1">
+                        <label for="rate-1" class="fas fa-star"></label>
+                    </div>
+                </div>
+            </div>
+            
+            <label for="review">Review</label>
+            <textarea name="body" id="" cols="30" rows="10"></textarea>
+            <input type="text" style="display: none;" id="hidden_one" name="rating">
+
+            <input type="submit"  class="submitBtn">
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+    document.getElementById('closebtn').addEventListener('click', function(){
+    document.getElementById('message_container').style.display = "none";
+})
+</script>
+
+
+{% endblock content%}

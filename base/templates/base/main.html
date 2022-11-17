@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/sub/main.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/sub/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sub/indexandmain.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sub/orderpage.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/sub/popup.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/sub/profile.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/sub/rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sub/ratingtwo.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/sub/.css' %}"> -->
+
+    {% block styles %} {% endblock %}
+    <link rel="stylesheet" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ce1f1fe11f.js" crossorigin="anonymous"></script>
+    
+    <title>InstantFix |{% block title%} {% endblock title%}</title>
+
+    
+</head>
+<body>
+    <div class="header">
+
+        <div class="brand_container">
+            <div class="brand_one">
+                <span><img src="images/logo_ac.png" alt="" height="75px"></span>
+            </div>
+            <div class="brand_two">
+                <h1><a href="{% url 'index' %}"> InstantFix.in</a></h1>
+            </div>
+            
+        </div>
+        <nav>
+            <div><a href="#services">Services</a></div>
+            <div><a href="#whyUs">Why Us?</a></div>
+            <div><a href="">Ratings and Reviews</a></div>
+        </nav>
+        <div class="nav_button">
+            <div class="nav_button_container" id="bars">
+                <div class="nav_button_one" id="close"><i class="fa-solid fa-xmark"></i></div>
+                <div class="nav_button_two" id="open"><i class="fa-solid fa-bars"></i></div>
+                
+            </div>
+        </div>
+        <div class="mob_nav hide" id="nav_dropdown">
+            <div><a href="">Services</a></div>
+            <div><a href="">Why Us?</a></div>
+            <div><a href="">Ratings and reviews</a></div>
+        </div>
+
+    </div>
+    {% block content %}
+
+    {% endblock content %}
+    <footer>
+        <div>
+            <div class="footer_item">
+                <a href="{% url 'privacy_policy' %}">Privacy&policy</a>
+                <a href="{% url 'privacy_policy' %}">Terms&Conditions</a>
+            </div>
+            <div class="footer_item">
+                <a href="">Who we are?</a>
+                <a href="">What we do?</a>
+                <a href="{% url 'order_status' %}">Rate Us </a>
+            </div>
+            <div class="footer_item">
+                <a href="{% url 'carrier_page' %}">carrier</a>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'logout_page' %}">logout</a>
+                {% else %}
+                <a href="{% url 'login_page' %}">login</a>
+                {% endif %}
+                {% if request.user.is_staff %}
+                <a href="{% url 'order_page' %}">Order Page</a>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <div class="social_media"><a href=""><i class="fa-brands fa-square-instagram"></i></a></div>
+            <div class="social_media"><a href=""><i class="fa-brands fa-square-facebook"></i></a></div>
+            <div class="social_media"><a href=""><i class="fa-brands fa-linkedin"></i></a></div>
+        </div>
+    
+    </footer>
+    
+    
+</body>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</html>

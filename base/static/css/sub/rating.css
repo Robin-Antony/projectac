@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.rating_container1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.star_container>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.star_container div{
+    width: fit-content;
+    
+}
+.star_container div input{
+    display: none;
+}
+.star_container div label{
+    font-size: 40px;
+    color: lightblue;
+    padding: 10px;
+    float: right;
+}
+.star_container div input:not(:checked) ~ label:hover,
+.star_container div input:not(:checked) ~ label:hover ~ label{
+    color: gold;
+    cursor: pointer;
+}
+.star_container div input:checked ~ label{
+    color: gold;
+}
+.star_container div input#rate-5:checked ~ label{
+    color: gold;
+}

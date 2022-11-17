@@ -1,0 +1,171 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/sub/orderpage.css' %}">
+<link rel="stylesheet" href="{% static 'css/sub/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/sub/form.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="profile_order"><a href="{% url 'order_page' %}">Order Page</a></div>
+<div class="initial_container">
+    <div class="profile_head">
+        
+        <div class="profile_container">
+            
+            <div class="profile_image">
+                <img src="{{ staff.imageURL }}" alt="ther is a profile picture">
+            </div>
+            
+
+            <div class="profile_details">
+                
+                <div class="profile_edit">
+                {% if request.user == staff %}
+                    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+
+                {% endif %}
+                </div>
+                <div class="profile_name">
+                    <span>{{staff.username}}</span>
+                </div>
+                
+                <div class="profile_star">
+                    <div class="star_container_x">
+                        <div>
+                        <span>{{average_rating}}</span>&nbsp;&nbsp;<strong class="fas fa-star"></strong>
+                        </div><span>&nbsp;&nbsp;/({{total_rating}})</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ///////////////////////////////////////////// -->
+
+<!-- ?????????????????????????????????????// -->
+
+
+<div class="center_span"><span><h2>Your Orders Details </h2></span></div>
+
+<div class="staff_order_container">
+
+    <div class="open_recent_container">
+        
+        <div>
+            
+            <div class="open">
+                <span class="" id="span_open"><h2 id="orders_open">Pending Orders</h2>
+                    <h2 class="for_big_only">pending orders </h2>
+                </span>
+                <div id="open_display">
+                
+                    {% for order in accepted_orders %}
+                        {% if order.order.complete %}
+                            
+                        {% else %}
+                            <div class="">
+                                <h3>{{order.order.name}}</h3>
+                                <h3>{{order.order.phone}}</h3>
+                                <h3>{{order.order.id}}</h3>
+                                <address>
+                                    <p> {{order.order.address}}</p>
+                                </address>
+                                
+                                
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <label for="complete_order">Order completed for Rs</label>
+                                    <input type="number"  name="order_price" style="width: 100px;" required>
+                                    <input type="text" value="{{order.order.id}}" name="order_id" style="display: none;">
+                                    <input type="submit" class="submitBtn" value="mark order complete">
+                                </form>
+                                
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                
+                </div>
+            </div>
+            
+            <div class="central_ling"></div>
+            <div class="recent">
+                <span class="initial_style" id="span_all"><h2 id="orders_all">Completed Orders</h2> <h2 class="for_big_only">completed orders</h2></span>
+                <div id="all_display">
+                    {% for order in accepted_orders %}
+                    {% if order.order.complete %}
+
+                    <div class="">
+                        <h3>{{order.order.name}}</h3>
+                        <h3>{{order.order.phone}}</h3>
+                        <h3>{{order.order.id}}</h3>
+                        <address>
+                            <p> {{order.order.address}}</p>
+                        </address>
+                        <h3>earned: {{order.order.order_price}} rupees</h3>
+                        
+                        
+                        
+                    </div>
+                        
+                    {% else %}
+                        
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<div class="rating_main_container">
+    {% for rating in ratings %}
+    <div class="rating_container">
+        <div>
+            <div class="rating_item1"><img src="{% static 'images/avathar.svg' %}" alt="profile photo"></div>
+            <div class="rating_item2">
+                <strong style = "text-transform:capitalize;">{{rating.order.name}}</strong>
+            </div>
+        </div>
+
+        <div>
+            <div class="rating_item3">
+                <div class="divided1"><strong>{{rating.rated}}</strong></div>
+                <div class="divided3"></div>
+                <div class="divided2"><strong>5</strong></div>
+            </div>
+            <div class="rating_item6">
+                <div class="fas fa-star"></div>
+            </div>
+            <div class="rating_item4">
+               <p>. {{rating.created|timesince}} ago</p>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="rating_item5">
+                <div>
+                    <p>{{rating.body}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+    
+</div>
+<style>
+   
+</style>
+
+
+
+
+{% endblock content %}

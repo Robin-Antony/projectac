@@ -1,0 +1,67 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/sub/form.css' %}"> {% endblock %}
+{% block content %}
+<div class="rate_condition">
+    <div>
+        <p>Inorder to rate Us you must complete the order.
+            You can check your order status by entering the mobile number
+            and your name that you used to place the order
+        </p>
+        <strong>Not ordered Yet <a href="{% url 'address' %}">Order Now</a></strong>
+    </div>
+
+    <h4>Check the status of your order</h4>
+    
+</div>
+<div class="popup_container" id="message_container">
+    <div class="popup_item">
+        <span id="closebtn"><i class="fa-solid fa-xmark"></i></span>
+        {% for message in messages %}
+
+            <p>{{message}}</p>
+        
+        {% endfor %}
+
+        {% if form.errors %}
+    
+        {{ form.errors }}
+    
+        {% endif %}
+    </div>
+</div>
+
+<div class="form_container">
+    <form action="" method="post" class="address_form"> 
+        {% csrf_token %}
+        <label for="name" >Name</label>
+        <input type="text" name="name">
+
+        <label for="phone">Phone no:</label>
+        <input type="text" name="phone">
+
+        <input type="submit" class="submitBtn">
+    </form>
+</div>
+  
+
+
+ 
+  <script>
+    
+
+document.getElementById('closebtn').addEventListener('click', function(){
+    document.getElementById('message_container').style.display = "none";
+})
+
+</script>
+
+
+
+  
+    
+
+
+
+
+{% endblock content %}

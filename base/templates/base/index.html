@@ -1,0 +1,273 @@
+{% extends 'base/main.html' %}
+
+{% load static %}
+
+{% block title %} home page {% endblock title%}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/sub/indexandmain.css' %}">{% endblock %}
+
+{% block content %}
+
+<div class="order_container">
+    <div class="orders_container_a">
+        <div class="descri">
+            <h2>Your Ac Servicing and Istalling Professionals In Kochi</h2>
+            <div class="underline"></div>
+            <p>We've been providing exceptional installation, repair, and replacement services for 
+               <strong>Air Conditionars</strong>,We are based in Kochi and provide services all over 
+               Earnakulam.
+            </p>
+        </div>
+        <div class="order_a">
+            <div class="order">
+                <a href="{% url 'address' %}"> Order Service </a>
+            </div>
+            
+            <!-- <div class="order">
+                <a href="{% url 'address' %}"> Order Service </a>
+            </div> -->
+            
+        </div>
+        <div class="order_by_phone">
+            <h3>Don't hesitate to call: 6526845524</h3>
+        </div>
+        
+    </div>
+    <div class="orders_container_b" >
+        <div class="index_rating_container">
+            <div class="index_rating">
+                <span>Overall Rating</span>&nbsp;&nbsp;<span class="fas fa-star"></span> &nbsp;&nbsp;<strong class="green_strong">{{average_rating}}</strong><br>
+                <p> <strong>  {{total_rating}} ratings of 108 Orders </strong></p>
+            </div>
+            <div class="rate_now">
+                <a href="{% url 'order_status' %}">Rate Us</a>
+            </div>
+            
+        </div>
+        <div class="order_container_b_mask"></div>
+        
+        
+
+    </div>
+</div>
+<style>
+    .orders_container_b{
+        background-image: url('{% static "images/acrman.jpg" %}');
+        width: 60%;
+        height: 640px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+    @media only screen and (max-width: 800px){
+            .orders_container_b{
+                width:100%;
+            }
+        }
+    
+</style>
+<!-- +++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="service_container" id="services">
+    <div class="banner_container">
+        <div class="banner1">
+            <img src="{% static 'images/ac-repair2.jpg' %}" alt="">
+            <div class="text_container">
+                
+                    <h2>Ac Installing</h2>
+                    <p>THis is the body of eht heading and it consists of </p>
+                
+            </div>
+            <div class="text__container"></div>
+        </div>
+        <div class="banner2">
+            <img src="{% static 'images/acreplacing.webp' %}" alt="">
+            <div class="text_container">
+                <h2>Ac Repairing</h2>
+                <p>THis is the body of eht heading and it consists of </p>
+            </div>
+            <div class="text__container"></div>
+        </div>
+        <div class="banner3">
+            <img src="{% static 'images/acreplace.jpg' %}" alt="">
+            <div class="text_container">
+                <h2>Ac Gas Filling</h1>
+                <p>THis is the body of eht heading and it consists of </p>
+            </div>
+            <div class="text__container"></div>
+        </div>
+        <div class="banner4">
+            <img src="{% static 'images/acgas.jpg' %}" alt="">
+            <div class="text_container">
+                <h2>Ac servicing</h2>
+                <p>THis is the body of eht heading and it consists of </p>
+            </div>
+            <div class="text__container"></div>
+        </div>
+    </div>
+    <div class="banner_container_b">
+        <h2>What We Do</h2>
+        <div class="underline"></div>
+
+        <p>We are proud to be a trusted company in our cities and always strive to 
+            uphold that reputation and respect by delivering superior quality services.
+            when you call on us, you can have peace of mind knowing we care about the services we 
+            deliver. We stand by the promise to do the job right. We will perform services in a 
+            professional, workmanlike manner. If you believe the job was not done right, contact us 
+            within 5 days.
+       </p>
+        
+    </div>
+
+</div>
+
+
+
+<div id="whyUs">
+    <div class="why_container">
+        <div class="why_box_header">
+            <h2>Great Resions To Choose Dr.Ac</h2>
+            <div class="underline"></div>
+            
+        </div>
+        
+        <div class="why_box">
+            <div>
+                <h2><i class="fa-solid fa-map-location-dot"></i></h2>
+                <h3>Locally Owned And Operated </h3>
+                <p>We are proud to be a trusted company in our cities and always strive to 
+                    uphold that reputation and respect by delivering superior quality services.
+                    When you call on us, you can have peace of mind knowing we are the best in 
+                    the industry.
+                
+                </p>
+            </div>
+
+            <div>
+                <h2><i class="fa-solid fa-screwdriver-wrench"></i></h2>
+                <h3>Workmanship Parts Guaranteed </h3>
+                <p>We stand by the promise to do the job right. We perform
+                    services in a professional, workmanlike manner.
+                    If you belive the job was not done right, contact 
+                    us within 5 days
+ 
+                </p>
+            </div>
+        
+        
+            <div>
+                <h2><i class="fa-sharp fa-solid fa-shirt"></i></h2>
+                <h3> Uniformed Professionals </h3>
+                <p> You can expect uniformed professionals who are friendly, courteous,
+                    respectful, skilled, and knowledgeable. we show up on time, ready to get to work
+                    in our clean, orderly uniforms. You won't have to doubt who's at 
+                    the door when you see our smiling serviceman prepared to get the job done.
+                    
+                    
+                </p>
+            </div>
+
+            <div>
+                <h2><i class="fa-solid fa-clock"></i></h2>
+                <h3> Never an Overtime Charge </h3>
+                <p> We charge the same price any time, any day. That means
+                    you can call on us on Friday night,
+                    Saturday afternoon, or Sunday evening-without worrying 
+                    about any overtime fees.
+                
+                </p>
+            </div>
+
+            <div>
+                <h2><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i></h2>
+                <h3>Upfront Pricing</h3>
+                <p>You get to agree to a price before we start any work,
+                    keeping you in control of your own Repairing system. You can also be
+                    confident knowing that our Mecanic
+                    explain what services they are going to perform-prior to starting the job.
+                   
+                </p>
+            </div>
+        
+        
+            <div>
+                <h2><i class="fa-sharp fa-solid fa-handshake"></i></h2>
+                <h3> Exceptional Customer Service</h3>
+                <ul>
+                    <li>We leave your home as clean as we found it.</li>
+                    <li>We treat you respectfully.</li>
+                    <!-- <li>We are available for emergency services, even nights and weekends!</li> -->
+                    <li>We work around your schedule.</li>
+                    <li>We provide upfront pricing.</li>
+                </ul>
+            </div>
+            <div>
+                <h2><i class="fa-solid fa-calendar-days"></i></h2>
+                <h3>Flexible Service Options </h3>
+                <p>You want it fixed quickly and professionally, but you don't 
+                    want to feel like you're being taken advantage of. We make sure to give you 
+                    options, so you can decide what's right for you.
+                     <!-- We bring the expertise, but you’re in control. -->
+                </p>
+            </div>
+            <div>
+                <h2><i class="fa-solid fa-clock"></i></h2>
+                <h3>Convenient Appointment Times </h3>
+                <p>
+
+                    convenient appointment times that can be worked around your schedule!
+                     When you call on instantFix, 
+                    you get a scheduled appointment time, meaning you can plan your day accordingly and rest assured.
+                </p>
+            </div>
+        </div>
+            
+    </div>
+</div>
+
+
+
+
+
+<!-- ?????????????/ customer rating start -->
+
+<div class="rating_main_container">
+    {% for rating in ratings %}
+    <div class="rating_container">
+        <div>
+            <div class="rating_item1"><img src="{% static 'images/avathar.svg' %}" alt="profile photo"></div>
+            <div class="rating_item2">
+                <strong style = "text-transform:capitalize;">{{rating.order.name}}</strong>
+            </div>
+        </div>
+
+        <div>
+            <div class="rating_item3">
+                <div class="divided1"><strong>{{rating.rated}}</strong></div>
+                <div class="divided3"></div>
+                <div class="divided2"><strong>5</strong></div>
+            </div>
+            <div class="rating_item6">
+                <div class="fas fa-star"></div>
+            </div>
+            <div class="rating_item4">
+               <p>. {{rating.created|timesince}} ago</p>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="rating_item5">
+                <div>
+                    <p>{{rating.body}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+    
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++= -->
+
+{% endblock content %}

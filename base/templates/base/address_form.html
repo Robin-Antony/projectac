@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/sub/form.css' %}"> {% endblock %}
+{% block content %}
+
+<div class="form_container">
+    <form action="" method="post" class="address_form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Order Service" class="submitBtn">
+    
+    </form>
+</div>
+
+<script>
+
+document.getElementById('submitBtn').addEventListener('click', function(){
+    window.alert('Thank you for your order, we will contact you in a minute')
+})
+
+</script>
+
+{% endblock content%}
