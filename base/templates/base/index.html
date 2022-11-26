@@ -10,10 +10,10 @@
 <div class="order_container">
     <div class="orders_container_a">
         <div class="descri">
-            <h2>Your Ac Servicing and Istalling Professionals In Kochi</h2>
+            <h1>Your Ac Repairing and Istalling Professionals In Kochi</h1>
             <div class="underline"></div>
             <p>We've been providing exceptional installation, repair, and replacement services for 
-               <strong>Air Conditionars</strong>,We are based in Kochi and provide services all over 
+               <strong>Air Conditionars</strong>,<strong style="color: green;"> With 3 Month Warranty. </strong> We are based in Kochi and provide services all over 
                Earnakulam.
             </p>
         </div>
@@ -35,11 +35,11 @@
     <div class="orders_container_b" >
         <div class="index_rating_container">
             <div class="index_rating">
-                <span>Overall Rating</span>&nbsp;&nbsp;<span class="fas fa-star"></span> &nbsp;&nbsp;<strong class="green_strong">{{average_rating}}</strong><br>
-                <p> <strong>  {{total_rating}} ratings of 108 Orders </strong></p>
+                <span>Overall Rating</span>&nbsp;&nbsp;<span class="fas fa-star"></span> &nbsp;&nbsp;<strong class="green_strong">{{average_rating}}</strong><br><br>
+                <span>   {{total_rating}} ratings of 108 Orders </span>
             </div>
             <div class="rate_now">
-                <a href="{% url 'order_status' %}">Rate Us</a>
+                <a href="{% url 'order_status' %}"><strong> Rate Us</strong></a>
             </div>
             
         </div>
@@ -61,6 +61,15 @@
     @media only screen and (max-width: 800px){
             .orders_container_b{
                 width:100%;
+                box-sizing: border-box;
+                height: 640px;
+            }
+        }
+        @media only screen and (max-width: 650px){
+            .orders_container_b{
+                width:100%;
+                box-sizing: border-box;
+                height: 700px;
             }
         }
     
@@ -72,8 +81,12 @@
             <img src="{% static 'images/ac-repair2.jpg' %}" alt="">
             <div class="text_container">
                 
-                    <h2>Ac Installing</h2>
-                    <p>THis is the body of eht heading and it consists of </p>
+                    <h1>Ac Installing</h1>
+                    <p>Installing an AC can be a complicated process. 
+                        Having a professional install your AC will ensure that 
+                        it is installed properly. InstantFix have trained 
+                        professionals for this purpose. 
+                    </p>
                 
             </div>
             <div class="text__container"></div>
@@ -81,29 +94,70 @@
         <div class="banner2">
             <img src="{% static 'images/acreplacing.webp' %}" alt="">
             <div class="text_container">
-                <h2>Ac Repairing</h2>
-                <p>THis is the body of eht heading and it consists of </p>
+                <h1>Ac Repairing</h1>
+                <p>Many air conditioners can last more than twenty years.
+                     Similarly, many units have a short lifespan of ten years.
+                     Every AC needs to be serviced by a good AC repair service to
+                      keep it in good shape.</p>
             </div>
             <div class="text__container"></div>
         </div>
         <div class="banner3">
             <img src="{% static 'images/acreplace.jpg' %}" alt="">
             <div class="text_container">
-                <h2>Ac Gas Filling</h1>
-                <p>THis is the body of eht heading and it consists of </p>
+                <h1>Ac servicing</h1>
+                <p>Without proper maintenance, your air conditioner is more likely 
+                    to lose about 5 percent of its overall efficiency annually. 
+                    We provide the best Professionals for this
+                </p>
             </div>
             <div class="text__container"></div>
         </div>
         <div class="banner4">
             <img src="{% static 'images/acgas.jpg' %}" alt="">
             <div class="text_container">
-                <h2>Ac servicing</h2>
-                <p>THis is the body of eht heading and it consists of </p>
+                
+                <h1>Ac Gas Filling</h1>
+                <p>The Process of refilling AC gas is a bit complicated.
+                    Always hire a professional technician to replace your ac gas
+                </p>
             </div>
             <div class="text__container"></div>
         </div>
     </div>
     <div class="banner_container_b">
+        <h2>Service available to :</h2>
+        <div class="small_h1">
+            
+            <h1>Aluava,</h1>
+            <h1>Kalamassery,</h1>
+            <h1>Edappally,</h1>
+            <h1>kaloor,</h1>
+            <h1>Vytila,</h1>
+            <h1>Kadavanthra,</h1>
+            <h1>Ravipuram,</h1>
+            <H1>Thevara,</H1>
+            <h1>Menaka,</h1>
+            <h1>Fort Kochi,</h1>
+            <h1>Chittoor,</h1>
+            <h1>Vadathala,</h1>
+            <h1>Vennala,</h1>
+            <h1>Kakkanad,</h1>
+            <h1>Thripunithara,</h1>
+            <h1>Kundannoor,</h1>
+            <h1>Vypin,</h1>
+            <h1>Mulavukad,</h1>
+            <h1>Elamaviara,</h1>
+            <h1>Thammanam,</h1>
+            <h1>Varapuzha,</h1>
+            <h1>Angamali,</h1>
+            <h1>Maradu</h1>
+            <style>
+                .small_h1>h1{
+                    font-size: 20px;
+                }
+            </style>
+        </div>
         <h2>What We Do</h2>
         <div class="underline"></div>
 
@@ -114,6 +168,7 @@
             professional, workmanlike manner. If you believe the job was not done right, contact us 
             within 5 days.
        </p>
+       
         
     </div>
 
@@ -124,7 +179,7 @@
 <div id="whyUs">
     <div class="why_container">
         <div class="why_box_header">
-            <h2>Great Resions To Choose Dr.Ac</h2>
+            <h2>Great Resions To Choose Us</h2>
             <div class="underline"></div>
             
         </div>
@@ -259,6 +314,47 @@
                 <div>
                     <p>{{rating.body}}
                     </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+    
+</div>
+
+<div class="why_box_header">
+    <h2>Question And Answers</h2>
+    <div class="underline"></div>
+    
+</div>
+
+<div class="form_container">
+    <h2>Ask Your Questions here:</h2>
+    <form action="" method="post" class="address_form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="submit" class="submitBtn">
+    
+    </form>
+</div>
+
+
+
+<!-- ========================================== -->
+<div class="rating_main_container">
+    {% for answer in answers %}
+    <div class="rating_container">
+      
+
+        <div>
+            <div class="rating_item5">
+                <span style="font-size: 20px;">{{answer.name }}:</span><br><br>
+                <span>Question:&nbsp;{{answer.question}}</span> <br> <br>
+                <div>
+                <span>Answer:&nbsp;{{answer.answer}}
+                </span>
                 </div>
             </div>
 

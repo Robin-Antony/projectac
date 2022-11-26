@@ -24,11 +24,13 @@
         
         {% csrf_token %}
 
+        <div><label for="id_first_name">First name:</label> <input type="text" name="first_name" maxlength="200" id="id_first_name"></div>
+        <div><label for="id_last_name">Last name:</label> <input type="text" name="last_name" maxlength="200" id="id_last_name"></div>
         
-        <div>
+        <!-- <div>
             <label for="id_username">Username:</label>
             <input type="text" name="username" maxlength="200" required id="id_username">
-        </div>
+        </div> -->
         <div>
             <label for="id_email">Email:</label> 
             <input type="email" name="email" maxlength="254" autofocus required id="id_email">

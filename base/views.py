@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from. forms import OrderCreationForm,MyUserCreationForm,StaffRegisterForm,UserPasswordResetForm,StaffUpdateForm
-from. models import Order,Rating,AccurOrder,User
+from. forms import OrderCreationForm,MyUserCreationForm,StaffRegisterForm,UserPasswordResetForm,StaffUpdateForm,FeedbackForm,QandAForm
+from. models import Order,Rating,AccurOrder,User,Feedback,QandA
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -18,12 +18,12 @@ from django.http import JsonResponse
 # Create your views here.
 
 def index(request):
-    ratings = Rating.objects.all()
+    ratings = Rating.objects.all()[:10]
     rating_value = 0
     total_rating = 0
     orders = Order.objects.filter(complete=True)
-    # order_length = order.length()
-    # print('order_length :',order_length)
+    form = QandAForm()
+    answers = QandA.objects.filter(answered=True)[:10]
     for rating in ratings:
         total_rating += 1
         rating_value += rating.rated 
@@ -32,15 +32,21 @@ def index(request):
         average_rating = rating_value/total_rating
     except:
         average_rating = 0
+    
+    if request.method == 'POST':
+        form = QandAForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
 
-    context={'ratings':ratings,'average_rating':average_rating,'total_rating':total_rating}
+    context={'ratings':ratings,'average_rating':average_rating,'total_rating':total_rating,'form':form,'answers':answers}
     return render(request,'base/index.html',context)
 
 def activateEmail(request,user,to_email):
     mail_subject = "Activate your user account"
     message = render_to_string("base/template_activate_account.html", {
 
-        'user':user.username,
+        'user':user.first_name,
         'domain':get_current_site(request).domain,
         'uid':urlsafe_base64_encode(force_bytes(user.pk)),
         'token':account_activation_token.make_token(user),
@@ -65,7 +71,8 @@ def userRegister(request):
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()
+            user.first_name = user.first_name.lower()
+            user.last_name = user.last_name.lower()
             user.is_active = False
             user.save()
             activateEmail(request,user,request.POST.get('email'))
@@ -94,7 +101,7 @@ def passwordResetEmail(request,user,to_email):
     mail_subject = "Reset Your password"
     message = render_to_string("base/template_reset_password.html", {
 
-        'user':user.username,
+        'user':user.first_name,
         'domain':get_current_site(request).domain,
         'uid':urlsafe_base64_encode(force_bytes(user.pk)),
         'token':account_activation_token.make_token(user),
@@ -178,21 +185,6 @@ def loginPage(request):
 
     return render(request,'base/login.html')
 
-def logoutPage(request):
-    logout(request)
-    return redirect('index')
-
-def carrierPage(request):
-    return render(request,'base/carrier.html')
-
-def privacyPolicy(request):
-    return render(request,'base/privacy_policy.html')
-
-# def carrierPage(request):
-#     return render(request,'base/carrier.html')
-
-# def carrierPage(request):
-#     return render(request,'base/carrier.html')
 
 
 def order(request):
@@ -208,6 +200,7 @@ def order(request):
 
         except:
             order = None
+            print(order)
             Order.objects.create(
                 name=name,
                 phone=phone,
@@ -218,9 +211,13 @@ def order(request):
             
         if order is not None:
             if order.complete or order.order_no > 1:
-                accurorder = order.accurorder
-                accurorder.delete()
-                order.order_no += 1
+                try:
+                    accurorder = order.accurorder
+                    accurorder.delete()
+                except:
+                    accurorder = None
+
+                # order.order_no += 1
                 order.complete = False
                 order.accured = False
                 order.accured_by = None
@@ -231,6 +228,13 @@ def order(request):
             else:
                 order_numb = order.order_no
                 order.delete()
+                try:
+                    accepted_order = AccurOrder.objects.get(order=order)#if there is more than one accepted order an error occur (get())
+                    accepted_order.delete()
+                except:
+                    accepted_order = None
+
+                
                 Order.objects.create(
                 name=name,
                 phone=phone,
@@ -243,11 +247,13 @@ def order(request):
     context = {'form':form}
 
     return render(request,'base/address_form.html',context)
+
+
 @login_required(login_url = 'user_register')
 def orderPage(request):
     user = request.user
     if user.is_staff:
-        orders = Order.objects.all()
+        orders = Order.objects.all()[:10]
         open_orders = Order.objects.filter(accured=False)
     else:
         orders = []
@@ -313,6 +319,8 @@ def staffProfile(request,pk):
         return redirect('index')
     if user.is_staff:
         accepted_orders = user.accurorder_set.all()
+        # completed_orders = accepted_orders.filter(complete=True)
+        # print('completed orders : ', completed_orders)
         ratings = user.rating_set.all()
     else:
         accepted_orders = []
@@ -330,16 +338,19 @@ def staffProfile(request,pk):
     if request.method == "POST":
         order_id = request.POST.get('order_id')
         price = float(request.POST.get('order_price'))
+        history = request.POST.get('history')
 
         try:
             order = Order.objects.get(id=order_id)
             order.order_price += price
             order.complete=True
+            order.order_no += 1
+            order.history += "   " + history
             order.save()
         except:
             order = None
         return redirect('staff_profile',pk=pk)
-    context = {'staff':user,'accepted_orders':accepted_orders,'ratings':ratings,'average_rating':average_rating,'total_rating':total_rating}
+    context = {'staff':user,'accepted_orders':accepted_orders, 'ratings':ratings,'average_rating':average_rating,'total_rating':total_rating}
     return render(request, 'base/staff_profile.html',context)
 
 def orderStatus(request):
@@ -375,3 +386,43 @@ def rating(request, pk, phone):
         return redirect('index')
 
     return render(request,'base/rating.html')
+
+
+def logoutPage(request):
+    logout(request)
+    return redirect('index')
+
+def feedbackPage(request):
+    form = FeedbackForm()
+
+
+    if request.method == 'POST':
+        name= request.POST.get('name')
+        feedback= request.POST.get('feedback')
+        Feedback.objects.create(name=name,feedback=feedback)
+        return redirect('index')
+
+    
+    return render(request, 'base/feedback.html',{"form":form})
+
+def carrierPage(request):
+    return render(request,'base/carrier.html')
+
+def privacyPolicy(request):
+    return render(request,'base/privacy_policy.html')
+
+def aboutUs(request):
+    return render(request,'base/about_us.html')
+
+def helpPage(request):
+    return render(request,'base/help.html')
+
+def termsAndConditons(request):
+    return render(request,'base/terms_and_conditions.html')
+
+def whatWeDo(request):
+    return render(request,'base/what_we_do.html')
+
+def WhyUs(request):
+    return render(request,'base/why_us.html')
+

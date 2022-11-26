@@ -1,0 +1,60 @@
+.yscontainer_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(18, 19, 19); 
+}
+
+.yscontainer{
+    width: 75%;
+    display: flex;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(255, 255, 255, 0.788);
+}
+.yscontainer>div{
+    /* border: 1px solid green; */
+    margin: 5px;
+    padding: 30px;
+}
+.ys1{
+    width: 34%;
+}
+.ys1sub{
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    background-color: rgb(54, 52, 52);
+    border-radius: 5px;
+}
+.ys1 h3{
+    padding: 10px;
+    border-bottom: 1px solid brown;
+    font-size: 20px;
+}
+.ys1 h3 a:hover{
+    color: white;
+}
+
+.ys1 a{
+    color: lightblue;
+    text-decoration: none;
+}
+.ys2{
+    width: 66%;
+}
+@media only screen and (max-width: 1000px){
+    .yscontainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .ys1{
+        width: 100%;
+    }
+    .ys2{
+        width: 100%;
+    }
+    
+}

@@ -3,15 +3,17 @@ body{
     padding-top: 0;
     box-sizing: border-box;
     background-color: rgb(18, 19, 19); 
-    
     color: aliceblue; 
+    
 }
+
 h1{
-    font-family: 'Inspiration', cursive;
-    font-size: 50px; 
+    /* font-family: 'Inspiration', cursive; */
+    font-family:  cursive;
+    /* font-size: 50px;  */
 }
 h2,h3{
-    font-family: 'Fuzzy Bubbles', cursive;
+    font-family: cursive;
 }
 p,li{
     font-family: 'Ubuntu', sans-serif;
@@ -33,9 +35,14 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(11, 11, 30);
-    color: rgb(95, 249, 162);
+    background-color: rgb(22, 22, 62);
+    color: white;
     z-index: 11;
+}
+.brand_two h2{
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
 }
 .brand_container{
     margin-left: 30px;
@@ -46,8 +53,16 @@ a{
     height: 50px;
 }
 .brand_two a{
+    margin: 0;
+    padding: 0;
     text-decoration: none;
-    color: rgb(115, 115, 118);
+    color: white;
+}
+.brand_two h1{
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    color: rgb(207, 211, 215);
 }
 .brand_one span img{
     width: 60px;
@@ -126,7 +141,7 @@ nav a:hover{
 
 }
 .nav_button_two{
-    background-color: rgb(11, 11, 30);
+    background-color: rgb(22, 22, 62);
 }
 .mob_nav{   
     width: 90%;
@@ -158,7 +173,13 @@ nav a:hover{
 .hide{
     display: none;
 }
+.small_h1>h1{
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-block;
+    line-height: 10px;
 
+}
 
 footer{
     display: flex;
@@ -208,15 +229,21 @@ footer>div{
 
 
 @media only screen and (max-width: 1300px){
+    body{
+        overflow-x: hidden;
+    }
     h1{
-       font-family: 'Inspiration', cursive;
+       font-family: cursive;
        font-size: 38px;
    }
    h2,h3{
-       font-family: 'Fuzzy Bubbles', cursive;
+       font-family: cursive;
        font-size: 21px;
        line-height: 37px;
    }
+   /* .header{
+    background-color: green;
+   } */
    p,li,.review_container div{
        font-family: 'Ubuntu', sans-serif;
        font-size: 21px;
@@ -226,24 +253,31 @@ footer>div{
    }
    
    @media only screen and (max-width: 800px){
-       h1{
-           font-family: 'Inspiration', cursive;
+        body{
+            overflow-x: hidden;
+        }
+    /* .header{
+        background-color: purple;
+       } */
+      .brand_two h2{
+           /* font-family: poppins; */
            font-size: 35px;
        }
        h2,h3{
-           font-family: 'Fuzzy Bubbles', cursive;
+           /* font-family: 'Fuzzy Bubbles', cursive; */
            font-size: 18px;
            line-height: 34px;
        }
        p,li{
-           font-family: 'Ubuntu', sans-serif;
+           /* font-family: 'Ubuntu', sans-serif; */
            font-size: 18px;
            line-height: 34px;
        }
        
        .header{
-           padding: 5px;
+           padding: 17px;
            z-index: 11;
+           box-sizing: border-box;
        }
        .nav_button{
            display: contents;
@@ -254,6 +288,14 @@ footer>div{
 
    }
    @media only screen and (max-width: 650px){
+    body{
+        overflow-x: hidden;
+    }
+
+        /* .header{
+        background-color: rgb(128, 0, 0);
+       } */
+
        .header{
            padding: 15px;
        }

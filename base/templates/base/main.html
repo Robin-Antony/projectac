@@ -2,11 +2,25 @@
 {% load static %}
 <html lang="en">
 <head>
+
+    <meta name="robots" content="all" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
     <link rel="stylesheet" href="{% static 'css/sub/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sub/form.css' %}">
     <!-- <link rel="stylesheet" href="{% static 'css/sub/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/sub/indexandmain.css' %}">
     <link rel="stylesheet" href="{% static 'css/sub/orderpage.css' %}"> -->
@@ -19,9 +33,31 @@
     {% block styles %} {% endblock %}
     <link rel="stylesheet" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="AC,Air conditioner, AIR CONDITIONER, AC MECHANIC, AIR CONDITIONER MECHANIC, AIR CONDITIONER REPAIRING,
+    FASTEST WAY TO FIX YOUR AC,  Ac mechanics in Aluva,ac mechanic in Kalamassery, ac Mechanics in Edappally, ac mechanic in Edappally,
+    ac mechanic in kaloor, Ac mechanics in Vytila,  Ac mechanics in Kadavanthra, Ac mechanics in Ravipuram, Ac mechanics in Thevara,
+    Ac mechanics in Menaka, Ac mechanics in Fort Kochi, Ac mechanics in Chittoor, Ac mechanics in  Vadathala, Ac mechanics in Vennala,
+    Ac mechanics in Kakkanad, Ac mechanics in Thripunithara, Ac mechanics in Kundannoor, Ac mechanics in Vypin, Ac mechanics in Mulavukad,
+    Ac mechanics in Elamaviara, Ac mechanics in Thammanam, Ac mechanics in Varapuzha, Ac mechanics in Angamali, Maradu
+                                  Ac mechanics in kochi, Ac mechanics in kerala, Ac mechanics in Kerala kochi, Ac mechanics in Ernakulam,
+                                    Air conditioner mechanics in kochi, ac repairing in Kochi kerala, Ac mechanic in Ernakulam kochi,
+                                    best ac mechanic services providers in kerala, Fastest ac mechanic providers in kerala kochi ,best way to fix your ac
+                                    Ac mechanics in kochi,My ac is not working, how to fix my ac, how to fix my airconditioner, how to fix my air conditioner in kerala,
+                                    how to fix my air conditioner in Kochi, How to fix my ac for less price, how to fix my ac at low cost, how to fix
+                                    my ac for free, how to fix my ac fast, quick ac mechanic,  My ac is not cooling, fastest ac mechnic in world,
+                                    fastest ac repairing service in kerala, fastest ac mechanic in Kochi, fastest ac mechanic in Ernakulam, 
+                                    Best ac repairing services in kerala, Best ac repairing services in Kochi,Ernakulam, Kochi,
+                                    Air conditioner mechanics in Ernakulam, Ac mechanic, 
+                                    mechanic, Ac repairing,">
+        {% block meta %} {% endblock %}
+        <meta name="description" content="Ac repairing and installation in Ernakulam ">
     <script src="https://kit.fontawesome.com/ce1f1fe11f.js" crossorigin="anonymous"></script>
+
+
+    <!-- <meta property="og:site_name" content="InstantFix" />
+    <meta property="og:type" content="website" /> -->
     
-    <title>InstantFix |{% block title%} {% endblock title%}</title>
+    <title>Ac Repairing Mechanics in Ernakulam|InstantFix|{% block title%} {% endblock title%}</title>
 
     
 </head>
@@ -33,14 +69,16 @@
                 <span><img src="images/logo_ac.png" alt="" height="75px"></span>
             </div>
             <div class="brand_two">
-                <h1><a href="{% url 'index' %}"> InstantFix.in</a></h1>
+                <h2><a href="{% url 'index' %}"> InstantFix.in</a></h2>
+                <h1>Ac Mechanics in Ernakulam</h1>
             </div>
             
         </div>
         <nav>
-            <div><a href="#services">Services</a></div>
-            <div><a href="#whyUs">Why Us?</a></div>
-            <div><a href="">Ratings and Reviews</a></div>
+            <div><a href="{% url 'what_we_do' %}">Services</a></div>
+            <div><a href="{% url 'why_us' %}">Why Us?</a></div>
+            <div><a href="{% url 'about_us' %}">AboutUs</a></div>
+            <div><a href="{% url 'address' %}">OrderService</a></div>
         </nav>
         <div class="nav_button">
             <div class="nav_button_container" id="bars">
@@ -50,9 +88,10 @@
             </div>
         </div>
         <div class="mob_nav hide" id="nav_dropdown">
-            <div><a href="">Services</a></div>
-            <div><a href="">Why Us?</a></div>
-            <div><a href="">Ratings and reviews</a></div>
+            <div><a href="{% url 'what_we_do' %}">Services</a></div>
+            <div><a href="{% url 'why_us' %}">Why Us?</a></div>
+            <div><a href="{% url 'about_us' %}">Ratings and reviews</a></div>
+            <div><a href="{% url 'address' %}"> Order Service </a></div>
         </div>
 
     </div>
@@ -62,12 +101,13 @@
     <footer>
         <div>
             <div class="footer_item">
-                <a href="{% url 'privacy_policy' %}">Privacy&policy</a>
-                <a href="{% url 'privacy_policy' %}">Terms&Conditions</a>
+                <a href="{% url 'help_page' %}">Help&Customer Support</a>
+                <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                <a href="{% url 'terms_and_conditions' %}">Terms&Conditions</a>
             </div>
             <div class="footer_item">
-                <a href="">Who we are?</a>
-                <a href="">What we do?</a>
+                <a href="{% url 'about_us' %}">AboutUs</a>
+                <a href="{% url 'what_we_do' %}">What we do?</a>
                 <a href="{% url 'order_status' %}">Rate Us </a>
             </div>
             <div class="footer_item">
@@ -90,7 +130,12 @@
     
     </footer>
     
-    
+    <!-- <div>
+        Copyright © 2022. Mr. Rooter, All Rights Reserved. All Mr.
+         Rooter Franchise Locations Are Independently Owned And Operated. All Mr.
+         Rooter corporately owned locations are locally operated.
+          Mr. Rooter is a registered trademark of Mr. Rooter LLC.
+    </div> -->
 </body>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </html>

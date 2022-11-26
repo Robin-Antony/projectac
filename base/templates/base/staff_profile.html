@@ -66,18 +66,32 @@
                             
                         {% else %}
                             <div class="">
-                                <h3>{{order.order.name}}</h3>
-                                <h3>{{order.order.phone}}</h3>
-                                <h3>{{order.order.id}}</h3>
+                                <span>{{order.order.created|timesince}} ago.</span>
+                                <span>order updated on {{ order.order.updated|timesince}} ago</span>
+                                <h3>Customer Name: {{order.order.name}}</h3>
+                                <h3>Customer Phone: {{order.order.phone}}</h3>
+                                {% if order.order.order_no == 1 %}
+                                 <h3>This is the first order of the customer</h3>
+                                {% else%}
+                                <h3><span>This is the {{order.order.order_no}}th order of this customer </span></h3>
+                                {% endif %}
                                 <address>
-                                    <p> {{order.order.address}}</p>
+                                    <p><span>Address: </span> {{order.order.address}}</p>
                                 </address>
+                                <div style="border: 2px solid red">
+                                    <span>Order History:</span>
+                                    <p>{{order.order.history}}</p>
+                                </div>
                                 
                                 
                                 <form action="" method="post">
                                     {% csrf_token %}
                                     <label for="complete_order">Order completed for Rs</label>
                                     <input type="number"  name="order_price" style="width: 100px;" required>
+
+                                    <label for="history">Order History: </label>
+                                    <textarea id="history"  name="history" required></textarea>
+
                                     <input type="text" value="{{order.order.id}}" name="order_id" style="display: none;">
                                     <input type="submit" class="submitBtn" value="mark order complete">
                                 </form>
@@ -97,13 +111,21 @@
                     {% if order.order.complete %}
 
                     <div class="">
-                        <h3>{{order.order.name}}</h3>
-                        <h3>{{order.order.phone}}</h3>
-                        <h3>{{order.order.id}}</h3>
+                        <span>{{order.order.created|timesince}} ago.</span> <br>
+                        <span>order updated on {{ order.order.updated|timesince}} ago</span>
+                        <h3>Customer Name: {{order.order.name}}</h3>
+                        <h3>Customer Phone: {{order.order.phone}}</h3>
+                        
                         <address>
-                            <p> {{order.order.address}}</p>
+                            <p> <span>Address: </span> <br>
+                                {{order.order.address}}</p>
                         </address>
-                        <h3>earned: {{order.order.order_price}} rupees</h3>
+                        <div style="border: 2px solid red">
+                        <span>Order History:</span>
+                        <p>{{order.order.history}}</p>
+                        </div>
+                        <!-- <span>This customer has completed  </span> -->
+                        <h3>earned: {{order.order.order_price}} rupees from {{order.order.order_no}} orders</h3>
                         
                         
                         

@@ -1,0 +1,36 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/sub/help.css' %}"> {% endblock %}
+{% block content %}
+
+<div class="help_whole_container">
+    <h1>Help and Customer Support</h1>
+
+    <h2>Contact Us</h2>
+    <span>Last Updated on 20-11-2022</span>
+
+    
+    <address>
+        <h3>Our Address:</h3>
+        instantfix, palarivattom po <br>
+        Ernakulam pin 625455
+        near palrivattom junction rod
+
+    </address>
+
+    <h3>Front Office Contact Numbers</h3>
+    <span>9656985215,&nbsp;9655214523,&nbsp;9655214523</span>
+
+    <h3>Other information </h3>
+    <span>website: www.instantfix.in</span><br>
+    <span>Order service no: 965662351</span><br>
+    <span>e-mail: instantfix@gmail.com</span>
+
+    <h3> <a href="{% url 'feedback' %}">Feedback</a> </h3>
+    <div class="feedback_form">
+        
+    </div>
+
+</div>
+
+{% endblock %}

@@ -21,12 +21,16 @@
                 <div id="open_display">
                     {% for order in open_orders%}
                     <div class="">
-                        <h3>{{order.created|timesince}}</h3>
-                        <h3>{{order.name}}</h3>
-                        <h3>{{order.phone}}</h3>
+                        <span>First order {{order.created|timesince}} ago.</span>
+                        {% if order.order_no == 1 %}
+                        <span>Renewed {{order.updated|timesince}} ago.</span>
+                        {% else %}
+                        {% endif %}
+                        <h3>Customer Name: {{order.name}}</h3>
+                        <h3>Customer Phone: {{order.phone}}</h3>
                         
                         <address>
-                            <p> {{order.address}}</p>
+                            <p><span>Address: </span> {{order.address}}</p>
                         </address>
                         {% if order.problem is not None%}
                             <p>{{order.problem}}</p>
@@ -34,6 +38,12 @@
                         {% if order.accured %}
                         
                         {% else %}
+
+                        {% if order.order_no == 1 %}
+                            <h3>This is the first order of the customer</h3>
+                        {% else%}
+                            <h3><span>This is the {{order.order_no}}th order of this customer </span></h3>
+                        {% endif %}
                         <form action="" method="post">
                             {% csrf_token %}
                             <input type="text" value="{{order.id}}" name="order" style="display: none;">
@@ -53,19 +63,23 @@
                     {% for order in orders %}
                     {% if order.accured %}
                     <div class="">
-                        <h3>{{order.created|timesince}}</h3>
-                        <h3>{{order.name}}</h3>
-                        <h3>{{order.phone}}</h3>
+                        <span>{{order.created|timesince}} ago.</span>
+                        <h3>Customer name: {{order.name}}</h3>
+                        <h3>Customer phone: {{order.phone}}</h3>
                         
                         <address>
-                            <p> {{order.address}}</p>
+                            <p><span>Address: </span> <br>{{order.address}}</p>
                         </address>
                         <div>
                             {% if order.problem is not None%}
                             <p>{{order.problem}}</p>
                             {% endif %}
                         </div>
-                        
+                        {% if order.order.order_no == 1 %}
+                            <h3>This is the first order of the customer</h3>
+                        {% else%}
+                            <h3><span>This is the {{order.order_no}}th order of this customer </span></h3>
+                        {% endif %}
                         <h4>this order is accepted by {{order.accured_by}}</h4>
                     
                     </div>

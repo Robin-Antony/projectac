@@ -41,15 +41,18 @@
     justify-content: center;
 }
 .index_rating_container div{
-    margin: 1px;
+    margin: 4px;
 }
 .index_rating_container .index_rating{
-    padding: 4px 10px;
+    padding: 8px 18px;
     background-color: rgb(46, 49, 49);
 
     border-radius: 5px;
     color: white;
     
+}
+.index_rating_container .index_rating span{
+    padding: 4px;
 }
 .index_rating .green_strong{
     color: green;
@@ -63,7 +66,8 @@
     font-size: 25px;
     line-height: 40px; 
 }
-.descri>h2{
+.descri>h1{
+    font-size: 30px;
     line-height: 50px;
     font-family: 'Fuzzy Bubbles', cursive;
 }
@@ -82,8 +86,8 @@
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
-    background-color: rgb(19, 35, 35);
-    color: rgb(230, 159, 27);
+    background-color: rgb(229, 237, 237);
+    color: rgb(11, 11, 11);
 }
 
 .order > a{
@@ -91,9 +95,9 @@
     margin: 10px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: rgb(68, 82, 68);
+    background-color: rgb(185, 189, 185);
     border: 1px solid rgb(29, 29, 32);
-    color: rgb(241, 241, 247);
+    color: rgb(9, 9, 9);
     font-size: 18px;
     cursor: pointer;
     font-family: 'Fuzzy Bubbles', cursive;
@@ -112,28 +116,44 @@
     height: 100%;
     top: 0;
     left: 0;
-    position: absolute;   
+    position: absolute;  
+     z-index: 5;
 }
+/* .text_container{
+    z-index: 3;
+} */
+.text_container{
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #040404;
+    z-index: 3;
+    color: white;
+}
+
 .text__container{
+    z-index: 2;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     background-color: black;
-    opacity: 0.0;
+    opacity: 0.7;
 }
 .banner1{
-    animation: slider 12s linear infinite;
+    animation: slider 30s linear infinite;
 }
 .banner2{
-    animation: slider2 12s linear infinite;
+    animation: slider2 30s linear infinite;
 }
 .banner3{
-    animation: slider3 12s linear infinite;
+    animation: slider3 30s linear infinite;
 }
 .banner4{
-    animation: slider4 12s linear infinite;
+    animation: slider4 30s linear infinite;
 }
 @keyframes slider{
     0%{
@@ -208,17 +228,10 @@ img{
     width: 100%;
     height: 100%;   
 }
-.text_container{
-    position: absolute;
-    width: fit-content;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #040404;
-    /* z-index: ; */
-}
+
 .service_container{
     display: flex;
+    /* background-color: red; */
 }
 .banner_container_b{
     width: 40%;
@@ -246,7 +259,9 @@ img{
     align-items: center;
     justify-content: center;
     padding: 10px;
+    box-sizing: border-box;
     color: rgb(241, 236, 236);
+    /* background-color: rebeccapurple; */
 }
 .why_box_header{
     padding: 5px;
@@ -276,7 +291,7 @@ img{
     border-bottom: 10px solid rgba(66, 66, 67, 0.388);
 }
 .why_box>div>h2{
-    color: rgb(95, 94, 94);
+    color: rgb(242, 238, 238);
 }
 .why_box>div:hover{
     margin-bottom: 20px;
@@ -293,42 +308,50 @@ img{
 }
 @media only screen and (max-width: 1300px){
    .descri{
-       width: 90%;
+       width: 100%;
+        box-sizing: border-box;
    }
-   }
+  
+}
    
    @media only screen and (max-width: 800px){
+        body{
+            overflow-x: hidden;
+        }
+
        .banner_container{
            height: 300px;
        }
        .orders_container_a{
-        width: 40%;
         height: 640px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;  
-        /* background-color: orange;  */
-    }
-    .descri{
-        margin-top: 20px;
-    }
-       .index_rating_container{
-        z-index: 20;
-        top: 80%;
-    }
 
-       .order > a{
-        margin: 7px;
-        padding: 16px 12px;
+            }
+        .descri{
+            margin-top: 20px;
+        
+        }
+        .index_rating_container{
+            z-index: 20;
+            top: 80%;
+        }
 
-    }
+        .order > a{
+            margin: 7px;
+            padding: 16px 12px;
+
+        }
        
        .order_container,.service_container{
            flex-direction: column;
+     
        }
-       .orders_container_b,.orders_container_a,.banner_container,.banner_container_b{
+       .orders_container_a,.banner_container,.banner_container_b{
            width: 100%;
+            box-sizing: border-box;
        }
        .orders_container_b{
            position: absolute;
@@ -350,6 +373,7 @@ img{
        }
        .review_main{
            width: 95%;
+           /* background-color: green; */
        }
        .why_box_header{
    
@@ -360,33 +384,67 @@ img{
        }
        .descri{
            width: 90%;
-           padding: 10px;       
+           padding: 10px; 
+           box-sizing: border-box;      
         }
        .review_item_container{
            width: 100px;
            height: 250px;
-           background-color: rgb(245, 248, 248);
+           /* background-color: rgb(245, 248, 248); */
         }
    }
-   @media only screen and (max-width: 650px){
+   @media only screen and (max-width: 600px){
+        body{
+            overflow-x: hidden;
+        }
         .descri{
             margin-top: 5px;
         }
         .order > a{
             margin: 5px;
-            padding: 5px 10px;
-            font-size: 16px;
+            padding: 8px 16px;
+            font-size: 18px;
         }
         .order_by_phone{  
-            margin: 5px;
+            margin: 1px;
         }
        .order_container,.service_container{
            flex-direction: column;
        }
+       .index_rating_container{
+            height: fit-content;
+            z-index: 20;
+            top: 87%;
+            align-items: center;
+        }
+        .index_rating_container div{
+            margin: 7px 2px
+        }
+        .index_rating_container .index_rating {
+            text-align: center;
+            font-size: 16px;
+            padding: 3px;
+            margin: 6px;
+        }
        .orders_container_b,.orders_container_a,.banner_container{
            width: 100%;
+           /* padding: 20px;
+           height: fit-content;
+           background-color: purple; */
+           
+       }
+       
+       .orders_container_b,.orders_container_a{
+            height: 700px; 
        }
        .banner_container_b{
            width: 95%;
        } 
+   }
+
+   @media only screen and (max-width: 380px){
+    .index_rating_container{
+        top: 90%;
+    }
+
    }

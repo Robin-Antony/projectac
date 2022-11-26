@@ -1,9 +1,9 @@
-body{
+/* body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
-}
+} */
 .rating_container1{
     width: 100%;
     display: flex;
