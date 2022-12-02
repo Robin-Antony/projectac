@@ -27,10 +27,6 @@
     width: 400px;
     padding: 20px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    justify-content: center;
-    background-color: rgb(41, 41, 41);
-    align-items: center;
-    border-radius: 10px;
 }
 .profile_image{
     max-width: 100px;
@@ -80,24 +76,15 @@
         display: flex;
         width: 400px;
         padding: 20px;
-        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-        justify-content: center;
-        background-color: rgb(41, 41, 41);
-        align-items: center;
-        border-radius: 10px;
+       
     }
 }
 
 @media only screen and (max-width: 800px){
 
     .profile_container{
-        display: flex;
+       
         width: 300px;
         padding: 10px;
-        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-        justify-content: center;
-        background-color: rgb(41, 41, 41);
-        align-items: center;
-        border-radius: 10px;
-    }
+    }   
 }

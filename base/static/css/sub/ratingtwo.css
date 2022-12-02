@@ -94,3 +94,14 @@
     flex: 1;
     padding: 5px;
 }
+
+@media only screen and (max-width: 650px){
+    .rating_main_container{
+        max-height: initial;
+        padding: 10px;
+        display: flex;
+        overflow-x:auto ;
+        flex-direction: column;
+    }
+    
+}

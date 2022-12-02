@@ -56,57 +56,12 @@
         <div>
             
             <div class="open">
-                <span class="" id="span_open"><h2 id="orders_open">Pending Orders</h2>
-                    <h2 class="for_big_only">pending orders </h2>
+                <span class="" id="span_open"><h2 id="orders_open"> Completed Orders</h2>
+                    <h2 class="for_big_only"> completed orders</h2>
                 </span>
-                <div id="open_display">
                 
-                    {% for order in accepted_orders %}
-                        {% if order.order.complete %}
-                            
-                        {% else %}
-                            <div class="">
-                                <span>{{order.order.created|timesince}} ago.</span>
-                                <span>order updated on {{ order.order.updated|timesince}} ago</span>
-                                <h3>Customer Name: {{order.order.name}}</h3>
-                                <h3>Customer Phone: {{order.order.phone}}</h3>
-                                {% if order.order.order_no == 1 %}
-                                 <h3>This is the first order of the customer</h3>
-                                {% else%}
-                                <h3><span>This is the {{order.order.order_no}}th order of this customer </span></h3>
-                                {% endif %}
-                                <address>
-                                    <p><span>Address: </span> {{order.order.address}}</p>
-                                </address>
-                                <div style="border: 2px solid red">
-                                    <span>Order History:</span>
-                                    <p>{{order.order.history}}</p>
-                                </div>
-                                
-                                
-                                <form action="" method="post">
-                                    {% csrf_token %}
-                                    <label for="complete_order">Order completed for Rs</label>
-                                    <input type="number"  name="order_price" style="width: 100px;" required>
 
-                                    <label for="history">Order History: </label>
-                                    <textarea id="history"  name="history" required></textarea>
-
-                                    <input type="text" value="{{order.order.id}}" name="order_id" style="display: none;">
-                                    <input type="submit" class="submitBtn" value="mark order complete">
-                                </form>
-                                
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                
-                </div>
-            </div>
-            
-            <div class="central_ling"></div>
-            <div class="recent">
-                <span class="initial_style" id="span_all"><h2 id="orders_all">Completed Orders</h2> <h2 class="for_big_only">completed orders</h2></span>
-                <div id="all_display">
+                <div      id="open_display">
                     {% for order in accepted_orders %}
                     {% if order.order.complete %}
 
@@ -135,6 +90,54 @@
                         
                     {% endif %}
                 {% endfor %}
+                </div>
+            </div>
+            
+            <div class="central_ling"></div>
+            <div class="recent">
+                <span class="initial_style" id="span_all"><h2 id="orders_all">Pending Orders</h2> <h2 class="for_big_only">pending orders</h2></span>
+                <div id="all_display">
+                
+                    {% for order in accepted_orders %}
+                        {% if order.order.complete %}
+                            
+                        {% else %}
+                            <div class="">
+                                <span>{{order.order.created|timesince}} ago.</span>
+                                <span>order updated on {{ order.order.updated|timesince}} ago</span>
+                                <h3>Customer Name: {{order.order.name}}</h3>
+                                <h3>Customer Phone: {{order.order.phone}}</h3>
+                                {% if order.order.order_no == 1 %}
+                                 <h3>This is the first order of the customer</h3>
+                                {% else%}
+                                <h3><span>This is the {{order.order.order_no}}th order of this customer </span></h3>
+                                {% endif %}
+                                <address>
+                                    <p><span>Address: </span> {{order.order.address}}</p>
+                                </address>
+                                <div style="border: 2px solid red">
+                                    <span>Order History:</span>
+                                    <p>Paid: {{order.order.order_price}} Rs</p>
+                                    <p>{{order.order.history}}</p>
+                                </div>
+                                
+                                
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <label for="complete_order">Order completed for Rs</label>
+                                    <input type="number"  name="order_price" style="width: 100px;" required>
+
+                                    <label for="history">Order History: </label>
+                                    <textarea id="history"  name="history" required></textarea>
+
+                                    <input type="text" value="{{order.order.id}}" name="order_id" style="display: none;">
+                                    <input type="submit" class="submitBtn" value="mark order complete">
+                                </form>
+                                
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                
                 </div>
             </div>
         </div>

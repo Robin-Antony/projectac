@@ -68,15 +68,16 @@
             <div class="brand_one">
                 <span><img src="images/logo_ac.png" alt="" height="75px"></span>
             </div>
+
             <div class="brand_two">
-                <h2><a href="{% url 'index' %}"> InstantFix.in</a></h2>
-                <h1>Ac Mechanics in Ernakulam</h1>
+                <h2><a href="{% url 'index' %}"> InstantFix.in </a></h2>
+                <h1>Ac Mechanics in Ernakulam </h1>
             </div>
             
         </div>
         <nav>
             <div><a href="{% url 'what_we_do' %}">Services</a></div>
-            <div><a href="{% url 'why_us' %}">Why Us?</a></div>
+            <div><a href="{% url 'why_us' %}">WhyUs?</a></div>
             <div><a href="{% url 'about_us' %}">AboutUs</a></div>
             <div><a href="{% url 'address' %}">OrderService</a></div>
         </nav>
@@ -84,12 +85,11 @@
             <div class="nav_button_container" id="bars">
                 <div class="nav_button_one" id="close"><i class="fa-solid fa-xmark"></i></div>
                 <div class="nav_button_two" id="open"><i class="fa-solid fa-bars"></i></div>
-                
             </div>
         </div>
         <div class="mob_nav hide" id="nav_dropdown">
             <div><a href="{% url 'what_we_do' %}">Services</a></div>
-            <div><a href="{% url 'why_us' %}">Why Us?</a></div>
+            <div><a href="{% url 'why_us' %}">WhyUs?</a></div>
             <div><a href="{% url 'about_us' %}">Ratings and reviews</a></div>
             <div><a href="{% url 'address' %}"> Order Service </a></div>
         </div>
@@ -101,7 +101,7 @@
     <footer>
         <div>
             <div class="footer_item">
-                <a href="{% url 'help_page' %}">Help&Customer Support</a>
+                <a href="{% url 'help_page' %}">Help&Support</a>
                 <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
                 <a href="{% url 'terms_and_conditions' %}">Terms&Conditions</a>
             </div>
@@ -123,6 +123,9 @@
             </div>
         </div>
         <div>
+            <div style="color: skyblue;">
+                Copyright © 2022. InstantFix, All Rights Reserved.
+            </div>
             <div class="social_media"><a href=""><i class="fa-brands fa-square-instagram"></i></a></div>
             <div class="social_media"><a href=""><i class="fa-brands fa-square-facebook"></i></a></div>
             <div class="social_media"><a href=""><i class="fa-brands fa-linkedin"></i></a></div>
@@ -130,12 +133,7 @@
     
     </footer>
     
-    <!-- <div>
-        Copyright © 2022. Mr. Rooter, All Rights Reserved. All Mr.
-         Rooter Franchise Locations Are Independently Owned And Operated. All Mr.
-         Rooter corporately owned locations are locally operated.
-          Mr. Rooter is a registered trademark of Mr. Rooter LLC.
-    </div> -->
+    
 </body>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </html>

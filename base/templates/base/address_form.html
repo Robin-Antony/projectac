@@ -7,15 +7,15 @@
     <form action="" method="post" class="address_form">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Order Service" class="submitBtn">
+        <input type="submit" value="Order Service" class="submitBtn" id="order_popup">
     
     </form>
 </div>
 
 <script>
 
-document.getElementById('submitBtn').addEventListener('click', function(){
-    window.alert('Thank you for your order, we will contact you in a minute')
+document.getElementById('order_popup').addEventListener('click', function(){
+    window.alert('Thank you for your order, We will contact you in a minute')
 })
 
 </script>

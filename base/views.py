@@ -345,7 +345,7 @@ def staffProfile(request,pk):
             order.order_price += price
             order.complete=True
             order.order_no += 1
-            order.history += "   " + history
+            order.history += " /  " + history
             order.save()
         except:
             order = None

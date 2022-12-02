@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    
 }
 .profile_order{
     margin: 20px;
@@ -57,7 +58,7 @@
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
-    background-color: rgb(46, 46, 46);
+    /* background-color: rgb(46, 46, 46); */
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 

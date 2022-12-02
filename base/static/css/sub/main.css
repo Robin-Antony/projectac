@@ -1,28 +1,17 @@
 body{
     margin: 0;
     padding-top: 0;
-    box-sizing: border-box;
-    background-color: rgb(18, 19, 19); 
-    color: aliceblue; 
-    
+    box-sizing: border-box;  
 }
-
-h1{
-    /* font-family: 'Inspiration', cursive; */
-    font-family:  cursive;
-    /* font-size: 50px;  */
+h1,h2,h3{
+    font-family: sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
 }
-h2,h3{
-    font-family: cursive;
-}
-p,li{
+p,li,a{
     font-family: 'Ubuntu', sans-serif;
 }
 .show{
     display: block;
-}
-a{
-    color: white;
 }
 .center_span{
     width: 100%;
@@ -35,23 +24,29 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(22, 22, 62);
+    background-color: rgb(69, 69, 159);
     color: white;
     z-index: 11;
+}
+.brand_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    width: fit-content;
+}
+.brand_one span img{
+    width: 60px;
+    height: 60px;
+}
+.brand_one{
+    display: none;
 }
 .brand_two h2{
     margin: 0;
     padding: 0;
     font-size: 50px;
 }
-.brand_container{
-    margin-left: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    width: fit-content;
-    height: 50px;
-}
+
 .brand_two a{
     margin: 0;
     padding: 0;
@@ -64,13 +59,7 @@ a{
     padding: 0;
     color: rgb(207, 211, 215);
 }
-.brand_one span img{
-    width: 60px;
-    height: 60px;
-}
-.brand_one{
-    display: none;
-}
+
 nav{
     padding: 20px;
     display: flex;
@@ -86,20 +75,11 @@ nav a{
     padding: 10px 20px;
     font-size: 18px;
     border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
 }
 nav a:hover{
     background-color: rgb(60, 60, 242);
 }
-.nav_button{
-    margin-left: auto;
-    margin-right: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: orange; */
-    width: 100px;
-    height: 50px;
+.nav_button{ 
     display: none;
 }
 .nav_button_container{
@@ -107,7 +87,6 @@ nav a:hover{
     width: 50px;
     height: 50px;
     cursor: pointer;
-    /* background-color: yellow; */
 }
 .nav_button_container div{
     position: absolute;
@@ -117,21 +96,17 @@ nav a:hover{
 .nav_button_container div .fa-bars{
     position: absolute;
     transform: translate(50%,50%);
-    top: 0px;
+    top: -10px;
     left: 0px;
     font-size: 30px;
-    /* display: none; */
 }
 .nav_button_container div .fa-xmark{
     position: absolute;
     transform: translate(50%,50%);
-    top: -2px;
+    top: -12px;
     left: 6px;
-    /* background-colo: green; */
-
     font-size: 32.5px;
 }
-
 .nav_button_one, .nav_button_two{
     position: absolute;
     width: 50px;
@@ -141,7 +116,7 @@ nav a:hover{
 
 }
 .nav_button_two{
-    background-color: rgb(22, 22, 62);
+    background-color: rgb(69, 69, 159);
 }
 .mob_nav{   
     width: 90%;
@@ -168,14 +143,14 @@ nav a:hover{
 .mob_nav>div>a{
     text-decoration: none;
     color: lightblue;
-    font-family: 'Poppins', sans-serif;    
+    /* font-family: 'Poppins', sans-serif;     */
 }
 .hide{
     display: none;
 }
 .small_h1>h1{
     font-size: 20px;
-    font-family: 'Ubuntu', sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
     display: inline-block;
     line-height: 10px;
 
@@ -233,71 +208,71 @@ footer>div{
         overflow-x: hidden;
     }
     h1{
-       font-family: cursive;
        font-size: 38px;
-   }
-   h2,h3{
-       font-family: cursive;
+    }
+    h2,h3{
        font-size: 21px;
        line-height: 37px;
-   }
-   /* .header{
-    background-color: green;
-   } */
-   p,li,.review_container div{
-       font-family: 'Ubuntu', sans-serif;
+    }
+    
+    p,li,div{
        font-size: 21px;
        line-height: 37px;
-   }
+    }
    
+   }
+   @media only screen and (max-width: 1000px){
+    nav >div{
+        margin: 0px 3px;
+    }
+
    }
    
    @media only screen and (max-width: 800px){
         body{
             overflow-x: hidden;
         }
-    /* .header{
-        background-color: purple;
-       } */
-      .brand_two h2{
-           /* font-family: poppins; */
-           font-size: 35px;
-       }
-       h2,h3{
-           /* font-family: 'Fuzzy Bubbles', cursive; */
-           font-size: 18px;
-           line-height: 34px;
-       }
-       p,li{
-           /* font-family: 'Ubuntu', sans-serif; */
-           font-size: 18px;
-           line-height: 34px;
-       }
+        .brand_two h2{
+            font-size: 35px;
+        }
+        h2,h3{
+            font-size: 18px;
+            line-height: 34px;
+        }
+        p,li{
+            font-size: 18px;
+            line-height: 34px;
+        }
        
-       .header{
-           padding: 17px;
-           z-index: 11;
-           box-sizing: border-box;
-       }
-       .nav_button{
-           display: contents;
-       }
-       nav{
-           display: none;
-       } 
+        .header{
+            padding: 17px;
+            z-index: 11;
+            box-sizing: border-box;
+        }
+        .nav_button{
+            display: contents;
+        }
+        nav{
+            display: none;
+        } 
 
    }
    @media only screen and (max-width: 650px){
-    body{
-        overflow-x: hidden;
-    }
+        body{
+            overflow-x: hidden;
+        }
 
-        /* .header{
-        background-color: rgb(128, 0, 0);
-       } */
-
-       .header{
-           padding: 15px;
-       }
+        .header{
+            padding: 15px;
+            height: fit-content;
+        }
        
    }
+   @media only screen and (max-width: 400px){
+        p,li,span{
+            font-size: 16px;
+            line-height: 28px;
+        }
+   }
+
+   
