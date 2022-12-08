@@ -7,8 +7,8 @@
     <form action="" method="post" class="address_form">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Order Service" class="submitBtn" id="order_popup">
-    
+        <input type="submit" value="Submit" class="submitBtn" id="order_popup">
+        <span>By submiting the form You are agreeing to our <a href="{% url 'terms_and_conditions' %}">terms </a> and <a href="{% url 'privacy_policy' %}">privacy policy</a></span>
     </form>
 </div>
 

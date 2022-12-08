@@ -37,3 +37,9 @@ span,p{
     line-height: 10px;
 
 }
+
+@media only screen and (max-width: 800px){
+    .about_container>div{
+        width: 100%;
+    }
+}
